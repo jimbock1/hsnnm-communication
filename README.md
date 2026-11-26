@@ -25,6 +25,15 @@ Reproducing
 
 Experiments ran on an AMD RX 9060 XT, Windows, PyTorch 2.9.1+rocm7.2.1, eager mode. HSNNM/requirements.txt pins a different torch version; use the one above to match the paper.
 
+TinyStories runs (one model and one seed per run, from the TALK/ folder; see TALK/README.md for all options):
+
+cd TALK
+python train.py --model dense --seed 0
+python train.py --model hsnnm --seed 0
+python train.py --model talk --seed 0 --gate-init-std 1.0
+
+Wikipedia runs and figures (from the repo root):
+
 python scripts/fetch_wiki.py          # downloads the Wikipedia corpus into data/
 python scripts/run_queue_v3.py        # Wikipedia queue (TALK, HSNNM, dense)
 python scripts/make_paper_figures.py results paper
